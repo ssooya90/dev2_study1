@@ -1,0 +1,23 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header>
+	<div class="inner">
+		<div class="header__menu">
+			<nav>
+				<ul>
+					<li><a th:href="${'/project/list'}" class="current">프로젝트 관리</a></li>
+					<li><a th:href="${'/project/reg'}">프로젝트 등록</a></li>
+					<li><a th:href="${'/manager/list'}">담당자 관리</a></li>
+				</ul>
+			</nav>
+
+
+			<div class="header_menu__right">
+				<a th:href="${'/signin'}">로그인</a>
+				<a th:href="${'/signup'}">회원가입</a>
+
+				<a href="#none">로그아웃</a>
+			</div>
+		</div>
+
+	</div>
+</header>
