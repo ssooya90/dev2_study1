@@ -31,7 +31,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
-    compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.projectlombok:lombok')
 
 
@@ -47,5 +46,13 @@ dependencies {
     compile("com.h2database:h2")
 
 
+    // thymeleaf
+    compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
+
+    // thymeleaf + security 설정 (인가처리)
+    compile ('org.thymeleaf.extras:thymeleaf-extras-springsecurity5')
+
+    //SpringSecurity
+    compile("org.springframework.boot:spring-boot-starter-security")
 }
 

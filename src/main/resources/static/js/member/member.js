@@ -25,5 +25,28 @@ var member = {
 		});
 	},
 
+	login : function () {
+
+
+		$.ajax({
+			url : "/login",
+			type : "post",
+			data : $('form').serialize(),
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		}).done(function (data) {
+
+			if(data == "success"){
+
+
+				window.location.href = "/";
+			}else{
+				alert(data);
+			}
+		}).fail(function (error) {
+			alert(JSON.stringify(error))
+		});
+
+	}
+
 
 }

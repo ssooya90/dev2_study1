@@ -11,26 +11,31 @@
 		<article class="table-set">
 			<div class="inner">
 				<div class="table-list-tit">로그인</div>
-				<table>
-					<colgroup>
-						<col style="width:200px;">
-						<col style="width:auto;">
-					</colgroup>
-					<tbody>
-					<tr>
-						<th>아이디</th>
-						<td><input class="tbox"></td>
-					</tr>
-					<tr>
-						<th>비밀번호</th>
-						<td><input class="tbox" type="password"></td>
-					</tr>
-					</tbody>
-				</table>
+				<form action="/login" method="post">
+					<input type="hidden" th:id ="token" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}" />
+					<input type="hidden" th:id ="header" th:name="_csrf_header" th:value="${_csrf.headerName}"/>
+					<table>
+						<colgroup>
+							<col style="width:200px;">
+							<col style="width:auto;">
+						</colgroup>
+						<tbody>
+						<tr>
+							<th>아이디</th>
+							<td><input class="tbox"></td>
+						</tr>
+						<tr>
+							<th>비밀번호</th>
+							<td><input class="tbox" type="password"></td>
+						</tr>
+						</tbody>
+					</table>
+				</form>
 				<div class="table-menu">
 					<a href="javascript:history.back()">취소</a>
 					<a href="#none">로그인</a>
 				</div>
+
 			</div>
 		</article>
 

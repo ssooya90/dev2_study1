@@ -17,8 +17,13 @@ public class MemberController {
 
 
 	@GetMapping("/signup")
-	public String write(){
+	public String signup(){
 		return "sign/signup";
+	}
+
+	@GetMapping("/signin")
+	public String signin(){
+		return "sign/signin";
 	}
 
 
@@ -29,6 +34,9 @@ public class MemberController {
 
 		return id;
 	}
+
+
+
 
 
 }
