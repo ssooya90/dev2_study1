@@ -8,11 +8,13 @@ var member = {
 			userId: $('#userId').val(),
 			pw: $('#pw').val(),
 			corpNm: $('#corpNm').val(),
-			telNo: $('#telNo').val()
-		};
+			telNo: $('#telNo').val(),
+ 		};
+
+		console.log(data)
 
 		$.ajax({
-			url: '/signup',
+			url: '/sign/signup',
 			dataType: 'json',
 			type: 'post',
 			contentType:'application/json; charset=utf-8',
@@ -36,8 +38,6 @@ var member = {
 		}).done(function (data) {
 
 			if(data == "success"){
-
-
 				window.location.href = "/";
 			}else{
 				alert(data);

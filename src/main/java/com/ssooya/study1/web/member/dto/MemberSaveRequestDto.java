@@ -35,6 +35,10 @@ public class MemberSaveRequestDto {
 				.telNo(telNo)
 				.build();
 	}
+	// 비밀번호 암호화용
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
 
 
 }

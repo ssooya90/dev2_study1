@@ -11,30 +11,32 @@
 		<article class="table-set">
 			<div class="inner">
 				<div class="table-list-tit">회원가입</div>
-				<table>
-					<colgroup>
-						<col style="width:200px;">
-						<col style="width:auto;">
-					</colgroup>
-					<tbody>
-					<tr>
-						<th>아이디</th>
-						<td><input class="tbox" id="userId"></td>
-					</tr>
-					<tr>
-						<th>비밀번호</th>
-						<td><input class="tbox" id="pw" type="password"></td>
-					</tr>
-					<tr>
-						<th>기업명</th>
-						<td><input class="tbox" id="corpNm"></td>
-					</tr>
-					<tr>
-						<th>전화번호</th>
-						<td><input class="tbox" id="telNo"></td>
-					</tr>
-					</tbody>
-				</table>
+				<form th:action="@{/sign/signup}" method="post">
+					<table>
+						<colgroup>
+							<col style="width:200px;">
+							<col style="width:auto;">
+						</colgroup>
+						<tbody>
+						<tr>
+							<th>아이디</th>
+							<td><input class="tbox" id="userId"></td>
+						</tr>
+						<tr>
+							<th>비밀번호</th>
+							<td><input class="tbox" id="pw" type="password"></td>
+						</tr>
+						<tr>
+							<th>기업명</th>
+							<td><input class="tbox" id="corpNm"></td>
+						</tr>
+						<tr>
+							<th>전화번호</th>
+							<td><input class="tbox" id="telNo"></td>
+						</tr>
+						</tbody>
+					</table>
+				</form>
 				<div class="table-menu">
 					<a href="javascript:history.back()">취소</a>
 					<a href="javascript:member.save()">회원가입</a>

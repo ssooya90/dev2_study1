@@ -1,4 +1,4 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <header>
 	<div class="inner">
 		<div class="header__menu">
@@ -12,8 +12,8 @@
 
 
 			<div class="header_menu__right">
-				<a th:href="${'/signin'}">로그인</a>
-				<a th:href="${'/signup'}">회원가입</a>
+				<a th:href="${'/sign/signin'}">로그인</a>
+				<a th:href="${'/sign/signup'}">회원가입</a>
 				<a href="#none">로그아웃</a>
 			</div>
 		</div>

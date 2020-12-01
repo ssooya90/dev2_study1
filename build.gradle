@@ -30,9 +30,7 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-
     compile('org.projectlombok:lombok')
-
 
     // SPRING BOOT 환경에서 session 저장용..
     compile('org.springframework.session:spring-session-jdbc')
@@ -43,16 +41,12 @@ dependencies {
 
     // data-jpa 실행 후 h2 콘솔을 추가하지 않으면 database 에러 발생
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile("com.h2database:h2")
 
 
     // thymeleaf
     compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
 
-    // thymeleaf + security 설정 (인가처리)
-    compile ('org.thymeleaf.extras:thymeleaf-extras-springsecurity5')
-
-    //SpringSecurity
     compile("org.springframework.boot:spring-boot-starter-security")
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 }
 
