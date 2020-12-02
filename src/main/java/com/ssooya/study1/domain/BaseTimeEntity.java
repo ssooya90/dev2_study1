@@ -30,6 +30,4 @@ public abstract class BaseTimeEntity {
 	@LastModifiedDate // 조회한 entity의 값이 변경될 때 자동저장
 	private LocalDateTime modifiedDate;
 
-
-
 }

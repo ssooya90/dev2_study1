@@ -23,7 +23,7 @@ public class Member extends BaseTimeEntity {
 	private String userId;
 
 	@Column(length = 100, nullable = false)
-	private String pw;
+	private String password;
 
 	@Column(length = 100, nullable = false)
 	private String corpNm;
@@ -32,10 +32,10 @@ public class Member extends BaseTimeEntity {
 	private String telNo;
 
 	@Builder
-	public Member(Long id, String userId, String pw, String corpNm, String telNo) {
+	public Member(Long id, String userId, String password, String corpNm, String telNo) {
 		this.id = id;
 		this.userId = userId;
-		this.pw = pw;
+		this.password = password;
 		this.corpNm = corpNm;
 		this.telNo = telNo;
 	}

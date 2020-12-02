@@ -19,7 +19,7 @@ public class IndexController {
 			e.printStackTrace();
 		}
 
-		return "project/project_list";
+		return "index";
 	}
 
 

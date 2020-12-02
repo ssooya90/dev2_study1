@@ -29,6 +29,7 @@ var member = {
 
 	login : function () {
 
+		console.log($('form').serialize())
 
 		$.ajax({
 			url : "/login",
@@ -38,7 +39,7 @@ var member = {
 		}).done(function (data) {
 
 			if(data == "success"){
-				window.location.href = "/";
+				window.location.href = "/project/list";
 			}else{
 				alert(data);
 			}

@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 public class MemberSaveRequestDto {
 
 	private String userId;
-	private String pw;
+	private String password;
 	private String corpNm;
 	private String telNo;
 
 	@Builder
-	public MemberSaveRequestDto(String userId, String pw, String corpNm, String telNo){
+	public MemberSaveRequestDto(String userId, String password, String corpNm, String telNo){
 		this.userId = userId;
-		this.pw = pw;
+		this.password = password;
 		this.corpNm = corpNm;
 		this.telNo = telNo;
 	}
@@ -30,14 +30,14 @@ public class MemberSaveRequestDto {
 	public Member toEntity(){
 		return Member.builder()
 				.userId(userId)
-				.pw(pw)
+				.password(password)
 				.corpNm(corpNm)
 				.telNo(telNo)
 				.build();
 	}
 	// 비밀번호 암호화용
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPw(String password) {
+		this.password = password;
 	}
 
 

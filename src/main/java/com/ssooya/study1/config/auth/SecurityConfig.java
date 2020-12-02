@@ -60,8 +60,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-
-
 	/* 시큐어 패턴 등록 */
 	// protected -> 모든 패키지에서 사용 가능하지 않도록 함
 	@Override
@@ -71,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  				.authorizeRequests()
 
 				// 페이지 권한 설정
-				.antMatchers("/admin/**").hasRole("ADMIN")    // 관리자롤을 가진 회원만 접근 가능
+				.antMatchers("/admin/**","/infra/**").hasRole("ADMIN")    // 관리자롤을 가진 회원만 접근 가능
 				.antMatchers("/**").permitAll() // 모든 경로에 대해서 권한없이 접근 가능
 
 				.and() // 로그인 설정
@@ -115,9 +113,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				Member member = memberRepository.findByUserId(userId)
 						.orElseThrow(() -> new UsernameNotFoundException(userId));
 
-
 				response.getWriter().print("success");
-
 				response.getWriter().flush();
 
 			}

@@ -40,7 +40,7 @@ public class MemberController {
 	@PostMapping("/sign/signup")
 	public Long save(@RequestBody MemberSaveRequestDto requestDto) {
 
-		requestDto.setPw(passwordEncoder.encode(requestDto.getPw()));
+		requestDto.setPw(passwordEncoder.encode(requestDto.getPassword()));
 		Long id = memberService.save(requestDto);
 
 		return id;
