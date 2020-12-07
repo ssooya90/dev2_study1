@@ -4,9 +4,9 @@
 		<div class="header__menu">
 			<nav>
 				<ul>
-					<li><a sec:authorize="hasRole('ROLE_MEMBER')" th:href="${'/project/list'}" class="current">프로젝트 관리</a></li>
-					<li><a sec:authorize="hasRole('ROLE_MEMBER')" th:href="${'/project/reg'}">프로젝트 등록</a></li>
-					<li><a sec:authorize="hasRole('ROLE_MEMBER')" th:href="${'/manager/list'}">담당자 관리</a></li>
+					<li><a sec:authorize="hasRole('ROLE_MEMBER')" th:href="${'/project/list'}" th:class="${'01' == '01'} ? 'current' : 'off'">프로젝트 관리</a></li>
+					<li><a sec:authorize="hasRole('ROLE_MEMBER')" th:href="${'/project/reg'}" th:class="${#httpServletRequest.requestURI == '/project/reg'} ? 'current' : 'off'">프로젝트 등록</a></li>
+					<li><a sec:authorize="hasRole('ROLE_MEMBER')" th:href="${'/manager/list'}" th:class="${#httpServletRequest.requestURI == '/project/edit'} ? 'current' : 'off'">담당자 관리</a></li>
 				</ul>
 			</nav>
 

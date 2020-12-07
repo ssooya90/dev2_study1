@@ -33,53 +33,35 @@
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td>1</td>
-						<td>냉매</td>
-						<td>신혜욱</td>
-						<td>완료</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>냉매</td>
-						<td>신혜욱</td>
-						<td>완료</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>냉매</td>
-						<td>신혜욱</td>
-						<td>완료</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>냉매</td>
-						<td>신혜욱</td>
-						<td>완료</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>냉매</td>
-						<td>신혜욱</td>
-						<td>완료</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
+
+					<tr th:each="item : ${projectList}">
+						<td>
+							<span th:text="${itemStat.count}"></span>
+						</td>
+						<td>
+							<span th:text="${item.name}"></span>
+						</td>
+						<td></td>
+						<td>
+							<span th:text="${item.stateName}"></span>
+						</td>
+						<td>
+							<span th:text="${#temporals.format(item.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+						</td>
+						<td>
+							<a th:href="@{'/project/edit/' + ${item.id}}" class="view-btn">상세보기</a>
+						</td>
 					</tr>
 					</tbody>
 				</table>
 				<article class="paging">
 					<ul>
-						<li><a href="#none" class="current">1</a></li>
-						<li><a href="#none">2</a></li>
-						<li><a href="#none">3</a></li>
+						<li th:each="pageNum : ${pageList}" th:inline="text">
+							<a th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>
+						</li>
+<!--						<li><a href="#none" class="current">1</a></li>-->
+<!--						<li><a href="#none">2</a></li>-->
+<!--						<li><a href="#none">3</a></li>-->
 					</ul>
 				</article>
 			</div>
