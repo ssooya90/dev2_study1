@@ -3,7 +3,9 @@ package com.ssooya.study1.web.manager;
 import com.ssooya.study1.service.manager.ManagerService;
 import com.ssooya.study1.web.manager.dto.ManagerSaveRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +21,12 @@ public class ManagerController {
 
 
 	@GetMapping("/manager/list")
-	public String managerList(){
+	public String managerList(Model model, final Pageable pageable, Principal principal){
+
+		model.addAttribute("managerList",managerService.findManagerByPageRequest(pageable, principal.getName()));
+
+
+
 		return "/manager/manager_list";
 	}
 
@@ -32,11 +39,7 @@ public class ManagerController {
 	@ResponseBody
 	public Long managerRegProc(@RequestBody ManagerSaveRequestDto requestDto, Principal principal){
 
-
-		managerService.save(requestDto, principal);
-
-
-		return null;
+		return managerService.save(requestDto, principal);
 	}
 
 
