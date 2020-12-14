@@ -32,43 +32,25 @@
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td>1</td>
-						<td>신혜욱</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
+
+					<tr th:each="item : ${managerList}">
+						<td th:text="${itemStat.count}">1</td>
+						<td th:text="${item.managerNm}">신혜욱</td>
+						<td th:text="${#temporals.format(item.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
+						<td><a th:href="@{'/manager/edit/' + ${item.id}}" class="view-btn">상세보기</a></td>
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>신혜욱</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>신혜욱</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>신혜욱</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>신혜욱</td>
-						<td>2020-10-02</td>
-						<td><a href="#none" class="view-btn">상세보기</a></td>
-					</tr>
+
+
 					</tbody>
 				</table>
 				<article class="paging">
 					<ul>
-						<li><a href="#none" class="current">1</a></li>
-						<li><a href="#none">2</a></li>
-						<li><a href="#none">3</a></li>
+						<li th:each="pageNum : ${pageList}" th:inline="text">
+							<a th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>
+						</li>
+						<!--						<li><a href="#none" class="current">1</a></li>-->
+						<!--						<li><a href="#none">2</a></li>-->
+						<!--						<li><a href="#none">3</a></li>-->
 					</ul>
 				</article>
 			</div>

@@ -7,6 +7,7 @@ import com.ssooya.study1.domain.member.MemberRepository;
 import com.ssooya.study1.domain.project.Project;
 import com.ssooya.study1.web.manager.dto.ManagerResponseDto;
 import com.ssooya.study1.web.manager.dto.ManagerSaveRequestDto;
+import com.ssooya.study1.web.manager.dto.ManagerUpdateRequestDto;
 import com.ssooya.study1.web.project.dto.ProjectListResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Principal;
 import java.util.List;
@@ -47,5 +49,22 @@ public class ManagerService {
 		return page.stream().map(ManagerResponseDto::new).collect(Collectors.toList());
 
 
+	}
+
+	@Transactional
+	public ManagerResponseDto findById(Long id) {
+
+		Manager entity = managerRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 담당자가 없습니다"));
+
+		return new ManagerResponseDto(entity);
+
+
+	}
+
+
+	@Transactional
+	public Long update(ManagerUpdateRequestDto requestDto) {
+
+		return managerRepository.save(requestDto.toEntity()).getId();
 	}
 }

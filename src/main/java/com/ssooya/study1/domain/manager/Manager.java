@@ -21,7 +21,7 @@ public class Manager extends BaseTimeEntity {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "member_id")
+	@JoinColumn(name = "member_id" , updatable = false)
 	private Member member;
 
 	@Column(length = 100, nullable = false)

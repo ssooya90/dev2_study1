@@ -10,16 +10,6 @@ var manager = {
 			managerNm : $('#managerNm').val(),
 			managerTelNo : $('#managerTelNo').val(),
 		}
-		//
-		// if(data.managerNm == ""){
-		// 	alert("담당자 이름을 입력해주세요");
-		// 	return false;
-		// }
-		//
-		// if(data.managerTelNo == ""){
-		// 	alert("담당자 연락처를 입력해주세요");
-		// 	return false;
-		// }
 
 		$.ajax({
 			url : "/manager/reg",
@@ -34,7 +24,34 @@ var manager = {
 		}).fail(function (error){
 			alert(JSON.stringify(error));
 		});
+	},
 
+	update : function (){
+
+		var _params = {
+			id : $('input[name=id]').val(),
+			managerNm: $('input[name=managerNm]').val(),
+			managerTelNo: $('input[name=managerTelNo]').val(),
+		}
+
+
+		$.ajax({
+			url: "/manager/update",
+			dataType: 'json',
+			type: 'post',
+			contentType: 'application/json; charset=utf=8',
+			data: JSON.stringify(_params)
+		}).done(function (result){
+
+			alert("수정되었습니다");
+			window.location.href="/manager/list"
+
+
+
+
+		}).fail(function (error){
+			alert(JSON.stringify(error));
+		});
 
 	}
 }

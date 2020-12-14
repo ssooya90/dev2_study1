@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 public class ManagerResponseDto {
 
+	private Long id;
 	private Member member;
 	private String managerNm;
 	private String managerTelNo;
@@ -16,11 +17,13 @@ public class ManagerResponseDto {
 	private LocalDateTime modifiedDate;
 
 
-
 	public ManagerResponseDto(Manager entity) {
+		this.id = entity.getId();
 		this.member = entity.getMember();
 		this.managerNm = entity.getManagerNm();
 		this.managerTelNo = entity.getManagerTelNo();
+		this.createdDate = entity.getCreatedDate();
+		this.modifiedDate = entity.getModifiedDate();
 	}
 
 }

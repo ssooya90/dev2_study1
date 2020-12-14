@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface ManagerRepository extends JpaRepository<Manager , Long> {
 
-//	@Query("SELECT m FROM Manager m ORDER BY m.member = :member_id DESC")
+	@Query("SELECT m FROM Manager m WHERE m.member.userId = :member_id ORDER BY m.id DESC")
 	Page<Manager> findAllByMemberId(Pageable pageable, @Param("member_id") String member_id);
 
 //	Page<Manager> findAllByMemberId(Pageable pageable, String member_id);

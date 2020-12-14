@@ -5,6 +5,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ import java.time.LocalDateTime;
 public abstract class BaseTimeEntity {
 
 	@CreatedDate // Entity가 생성되어 자장될 때 시간이 자동 저장
+	@Column(updatable = false)
 	private LocalDateTime createdDate;
 
 	@LastModifiedDate // 조회한 entity의 값이 변경될 때 자동저장
