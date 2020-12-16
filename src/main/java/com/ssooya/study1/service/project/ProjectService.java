@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -48,8 +49,18 @@ public class ProjectService {
 
 
 	@Transactional(readOnly = true)
-	public List findProjectByPageRequest(Pageable pageable) {
-		Page<Project> page = projectRepository.findAll(pageable);
+	public List findProjectByPageRequest(Pageable pageable, Map map) {
+
+		Page<Project> page = null;
+
+		page = projectRepository.findAllSearch("88", pageable);
+
+//		if(map.get("searchFlag").equals("name")){
+//		}else{
+//			page = projectRepository.findAll(pageable);
+//		}
+
+
 		return page.stream().map(ProjectListResponseDto::new).collect(Collectors.toList());
 	}
 
