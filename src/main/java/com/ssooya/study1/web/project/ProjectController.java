@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.HashMap;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Controller
@@ -20,8 +22,16 @@ public class ProjectController {
 
 	@GetMapping("/project/list")
 	public String projectList(Model model, final Pageable pageable){
+
+		Map map = new HashMap<>();
+
 		model.addAttribute("currentNum","01");
-		model.addAttribute("projectList",projectService.findProjectByPageRequest(pageable));
+		model.addAttribute("projectList",projectService.findProjectByPageRequest(pageable, map));
+
+
+//		if(1==1){
+//			model.addAttribute("commentList",projectService.findByBoard_Id(id));
+//		}
 
 		return "/project/project_list";
 	}
