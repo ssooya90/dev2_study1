@@ -44,9 +44,13 @@ public class ManagerService {
 
 	}
 
-	public List findManagerByPageRequest(Pageable pageable, String member_id) {
+	public Page findManagerByPageRequest(Pageable pageable, String member_id) {
 		Page<Manager> page = managerRepository.findAllByMemberId(pageable, member_id);
-		return page.stream().map(ManagerResponseDto::new).collect(Collectors.toList());
+
+
+		return page;
+
+//		return page.stream().map(ManagerResponseDto::new).collect(Collectors.toList());
 
 
 	}

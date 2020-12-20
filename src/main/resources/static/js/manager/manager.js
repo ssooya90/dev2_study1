@@ -19,7 +19,7 @@ var manager = {
 			data : JSON.stringify(data)
 		}).done(function (result){
 			console.log(result)
-			alert('프로젝트 등록이 완료되었습니다.');
+			alert('담당자 등록이 완료되었습니다.');
 			window.location.href = '/manager/list';
 		}).fail(function (error){
 			alert(JSON.stringify(error));

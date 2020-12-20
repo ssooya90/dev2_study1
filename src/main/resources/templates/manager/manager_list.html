@@ -44,14 +44,49 @@
 					</tbody>
 				</table>
 				<article class="paging">
-					<ul>
-						<li th:each="pageNum : ${pageList}" th:inline="text">
-							<a th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>
+
+					<ul class="pagination"
+						th:with="start=${T(Math).floor(managerList.number/10)*10 + 1},
+                    last=(${start + 9 < managerList.totalPages ? start + 9 : managerList.totalPages})">
+						<li>
+							<a th:href="@{/manager/list(page=0)}" aria-label="First">
+								<span aria-hidden="true">First</span>
+							</a>
 						</li>
-						<!--						<li><a href="#none" class="current">1</a></li>-->
-						<!--						<li><a href="#none">2</a></li>-->
-						<!--						<li><a href="#none">3</a></li>-->
+
+						<li th:class="${managerList.first} ? 'disabled'">
+							<a th:href="${managerList.first} ? '#' :@{/manager/list(page=${boardList.number})}" aria-label="Previous">
+								<span aria-hidden="true">&lt;</span>
+							</a>
+						</li>
+
+						<li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == managerList.number + 1} ? 'active'">
+							<a th:text="${page}" th:href="@{/manager/list(page=${page} -1)}"></a>
+						</li>
+
+						<li th:class="${managerList.last} ? 'disabled'">
+							<a th:href="${managerList.last} ? '#' : @{/manager/list(page=${managerList.number + 2})}" aria-label="Next">
+								<span aria-hidden="true">&gt;</span>
+							</a>
+						</li>
+
+						<li>
+							<a th:href="@{/boards(page=${managerList.totalPages -1})}" aria-label="Last">
+								<span aria-hidden="true">Last</span>
+							</a>
+						</li>
 					</ul>
+
+
+
+<!--					<ul>-->
+<!--						<li th:each="pageNum : ${pageList}" th:inline="text">-->
+<!--							<a th:href="@{'/?page=' + ${pageNum}}">[[${pageNum}]]</a>-->
+<!--						</li>-->
+<!--						&lt;!&ndash;						<li><a href="#none" class="current">1</a></li>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<li><a href="#none">2</a></li>&ndash;&gt;-->
+<!--						&lt;!&ndash;						<li><a href="#none">3</a></li>&ndash;&gt;-->
+<!--					</ul>-->
 				</article>
 			</div>
 		</article>
