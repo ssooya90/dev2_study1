@@ -4,6 +4,21 @@
 <head th:insert="common/head.html"></head>
 <body xmlns:th="http://www.w3.org/1999/xhtml">
 <!-- header 추가 -->
+
+<style>
+	.social-btn{
+		border:1px solid #ccc;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding:0 5px;
+		height: 25px;
+	}
+
+	.social-btn + .social-btn{
+		margin-left: 10px;
+	}
+</style>
 <div class="container">
 	<div th:insert="common/header.html" id="header"></div>
 	<div class="wrapper">
@@ -27,6 +42,14 @@
 						<tr>
 							<th>비밀번호</th>
 							<td><input class="tbox" type="password" id="password" name="password"></td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<a href="#none" class="social-btn">카카오톡 로그인</a>
+								<a href="#none" class="social-btn">네이버 로그인</a>
+								<a href="#none" class="social-btn">페이스북 로그인</a>
+								<a href="#none" class="social-btn">구글 로그인</a>
+							</td>
 						</tr>
 						</tbody>
 					</table>
