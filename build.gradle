@@ -32,11 +32,17 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile('org.projectlombok:lombok')
 
+    // oauth
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+
+
     // SPRING BOOT 환경에서 session 저장용..
     compile('org.springframework.session:spring-session-jdbc')
 
     //MARIA DB
     compile('org.mariadb.jdbc:mariadb-java-client')
+
+
 
 
     // data-jpa 실행 후 h2 콘솔을 추가하지 않으면 database 에러 발생

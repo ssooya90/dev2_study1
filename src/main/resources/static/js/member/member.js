@@ -9,6 +9,8 @@ var member = {
 			pw: $('#pw').val(),
 			corpNm: $('#corpNm').val(),
 			telNo: $('#telNo').val(),
+			name: $('#name').val(),
+			email: $('#email').val(),
  		};
 
 		console.log(data)

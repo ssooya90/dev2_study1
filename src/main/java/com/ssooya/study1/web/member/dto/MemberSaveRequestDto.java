@@ -17,13 +17,17 @@ public class MemberSaveRequestDto {
 	private String userId;
 	private String password;
 	private String corpNm;
+	private String name;
+	private String email;
 	private String telNo;
 
 	@Builder
-	public MemberSaveRequestDto(String userId, String password, String corpNm, String telNo){
+	public MemberSaveRequestDto(String userId, String password, String corpNm, String name, String email, String telNo){
 		this.userId = userId;
 		this.password = password;
 		this.corpNm = corpNm;
+		this.name = name;
+		this.email = email;
 		this.telNo = telNo;
 	}
 
@@ -32,6 +36,8 @@ public class MemberSaveRequestDto {
 				.userId(userId)
 				.password(password)
 				.corpNm(corpNm)
+				.name(name)
+				.email(email)
 				.telNo(telNo)
 				.build();
 	}
