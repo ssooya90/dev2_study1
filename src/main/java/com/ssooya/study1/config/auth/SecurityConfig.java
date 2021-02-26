@@ -66,19 +66,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.csrf().disable()
- 				.authorizeRequests()
+				.authorizeRequests().antMatchers("/oauth/**", "/oauth2/callback", "/h2-console/*").permitAll()
 
 				// 페이지 권한 설정
 				.antMatchers("/admin/**","/infra/**").hasRole("ADMIN")    // 관리자롤을 가진 회원만 접근 가능
 				.antMatchers("/**").permitAll() // 모든 경로에 대해서 권한없이 접근 가능
 
-				.and() // 로그인 설정
-				.formLogin()
-				.loginPage("/sign/signin")    // 커스텀 로그인 page
-				.loginProcessingUrl("/login") // form url
-				.permitAll()
-				.failureHandler(failureHandler())
-				.successHandler(successHandler())
+//				.and() // 로그인 설정
+//
+//
+//				.formLogin()
+//				.loginPage("/sign/signin")    // 커스텀 로그인 page
+//				.loginProcessingUrl("/login") // form url
+//				.permitAll()
+//				.failureHandler(failureHandler())
+//				.successHandler(successHandler())
+//
+
 //				.defaultSuccessUrl("/loginSuccess") // 성공 핸들러를 따로 사용하기위해 주석처리
 
 
